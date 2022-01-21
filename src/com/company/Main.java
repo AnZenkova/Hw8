@@ -1,6 +1,7 @@
 package com.company;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Main {
 
@@ -47,6 +48,17 @@ public class Main {
         }
     }
 
+    public static void reverseArrayValues (int[] arr) {
+        int lastIndex = arr.length - 1;
+        int numberCycles = arr.length/2;
+        for (int i = 0; i < numberCycles; i++) {
+            int memory = arr[i];
+            arr[i] = arr[lastIndex];
+            arr[lastIndex] = memory;
+            lastIndex = lastIndex - 1;
+        }
+    }
+
     public static void main(String[] args) {
         int year = 2000;
         checkYearForLeap(year);
@@ -60,5 +72,8 @@ public class Main {
 
         String line = "aabccddefgghiijjkk";
         checkForDuplicates(line);
+
+        int[] arr = {3, 2, 1, 6, 5};
+        reverseArrayValues(arr);
     }
 }
